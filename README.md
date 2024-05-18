@@ -4,7 +4,7 @@ This repository contains the code for the shocking live demos presented by Shai 
 
 **[Link to YouTube video](https://www.youtube.com/watch?v=kBMJ7lmfNxo&t=7569s)**
 
-[![image](https://github.com/shaialon/ai-security-demos/assets/3126207/7dd825c4-e290-43b7-9aaf-cb940ea1479b)]([https://www.google.com](https://www.youtube.com/watch?v=kBMJ7lmfNxo&t=7569s))
+[![image](https://github.com/shaialon/ai-security-demos/assets/3126207/7dd825c4-e290-43b7-9aaf-cb940ea1479b)](https://www.youtube.com/watch?v=kBMJ7lmfNxo&t=7569s)
 
 This presentation dives deep into the underappreciated and unsolved security risks of AI agents, showcasing real-world attacks and vulnerabilities. It's not just theory – Shai demonstrates live how seemingly harmless AI agents can be exploited to bypass authorization, leak sensitive data, and even execute malicious code. 
 

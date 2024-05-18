@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Data Scientist Interface</title>
+    <!-- Bootstrap CSS for styling -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <style>
+      /* Additional styling to hide results and adjust the loading indicator */
+      #resultSection {
+        display: none;
+      }
+      .loading-overlay {
+        display: none;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 2;
+        cursor: pointer;
+        text-align: center;
+        color: white;
+        font-size: 20px;
+        padding-top: 20%;
+      }
+    </style>
+  </head>
+  <body class="container py-5">
+    <div id="loading" class="loading-overlay">Loading...</div>
+    <h1 id="greeting" class="mb-3">Hello <u id="seller_id"></u>,</h1>
+    <h3 id="subtext" class="mb-3">I'm your data scientist, ask anything from our Invoices CRM</h3>
+    <form id="queryForm">
+      <div class="form-group">
+        <!-- Larger textarea -->
+        <textarea
+          id="queryInput"
+          class="form-control"
+          rows="5"
+          placeholder="I'm your data scientist, ask anything from our Invoices CRM"
+        ></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit Query</button>
+    </form>
+    <!-- Results section initially hidden -->
+    <div id="resultSection" class="mt-4">
+      <img id="resultImage" alt="Result Image" class="img-fluid" />
+      <pre id="resultText" class="mt-3"></pre>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        const sellerId = localStorage.getItem("seller_id") || "anon";
+        $("#seller_id").text(sellerId);
+
+        // Populate textarea with saved value
+        $("#queryInput").val(localStorage.getItem("queryInput") || "");
+
+        $("#queryForm").on("submit", function (event) {
+          event.preventDefault();
+          const textAreaValue = $("#queryInput").val();
+          localStorage.setItem("queryInput", textAreaValue); // Save to localStorage on submission
+          const queryUrl = `/ai_search?search=${encodeURIComponent(textAreaValue)}&seller_id=${encodeURIComponent(
+            sellerId,
+          )}`;
+
+          $("#loading").show(); // Show loading indicator
+          $("#resultSection").hide(); // Hide previous results
+
+          fetch(queryUrl)
+            .then(response => response.json())
+            .then(data => {
+              if (data.status === "success") {
+                $("#resultImage").attr("src", data.output_image);
+                $("#resultText").text(JSON.stringify(data.results, null, 2));
+                $("#resultSection").show(); // Show results
+              } else {
+                alert("Error fetching data");
+              }
+            })
+            .catch(error => {
+              console.error("Error:", error);
+              alert("Failed to fetch data");
+            })
+            .finally(() => {
+              $("#loading").hide(); // Hide loading indicator
+            });
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+{
+  "name": "ai-seaarch",
+  "version": "1.1.0",
+  "description": "AI Agent",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "populate_db": "node scripts/populate_db.js",
+    "drop_db": "node scripts/drop_db.js",
+    "test": "NODE_OPTIONS=\"--experimental-vm-modules\" npx jest"
+  },
+  "engines": {
+    "node": ">=20.10.0"
+  },
+  "author": "Shai Alon shaialon84@gmail.com",
+  "license": "MIT",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.17.1",
+    "@antv/g2": "^5.1.17",
+    "@berryv/g2-ssr-node": "^0.2.0",
+    "@fastify/static": "^7.0.2",
+    "chalk": "^5.3.0",
+    "chart.js": "^3.9.1",
+    "chartjs-node-canvas": "^4.1.6",
+    "dotenv": "^16.4.2",
+    "fastify": "^4.26.2",
+    "fastify-static": "^4.7.0",
+    "groq-sdk": "^0.3.2",
+    "minisearch": "^6.3.0",
+    "node-persist": "^4.0.1",
+    "openai": "^4.27.0",
+    "puppeteer": "^22.6.1",
+    "sqlite3": "^5.1.7",
+    "terminal-link": "^3.0.0",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.24.0",
+    "babel-jest": "^29.7.0",
+    "jest": "^29.7.0"
+  }
+}

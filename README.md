@@ -8,6 +8,9 @@ This repository contains the code for the shocking live demos presented by Shai 
 
 This presentation dives deep into the underappreciated and unsolved security risks of AI agents, showcasing real-world attacks and vulnerabilities. It's not just theory – Shai demonstrates live how seemingly harmless AI agents can be exploited to bypass authorization, leak sensitive data, and even execute malicious code. 
 
+**[Link to the slides PDF](https://github.com/shaialon/ai-security-demos/files/15367047/Securing.the.Future_.AI.and.the.Cybersecurity.Challenge._.Shai.Alon.pdf)**
+
+
 ## Demo 1: Headset Support Center Refund Bot 🎧
 
 This demo showcases a simple AI chatbot designed to automate refund requests based on pre-defined rules. It's main handler:

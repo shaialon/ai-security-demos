@@ -4,6 +4,8 @@ This repository contains the code for the shocking live demos presented by Shai 
 
 **[Link to YouTube video](https://www.youtube.com/watch?v=kBMJ7lmfNxo&t=7569s)**
 
+[![image](https://github.com/shaialon/ai-security-demos/assets/3126207/7dd825c4-e290-43b7-9aaf-cb940ea1479b)]([https://www.google.com](https://www.youtube.com/watch?v=kBMJ7lmfNxo&t=7569s))
+
 This presentation dives deep into the underappreciated and unsolved security risks of AI agents, showcasing real-world attacks and vulnerabilities. It's not just theory – Shai demonstrates live how seemingly harmless AI agents can be exploited to bypass authorization, leak sensitive data, and even execute malicious code. 
 
 ## Demo 1: Headset Support Center Refund Bot 🎧
@@ -127,6 +129,45 @@ npm start
 You can then make requests to either apps by visiting:
 [Demo 1 : Support Rep](http://127.0.0.1:8010/support_rep.html)
 [Demo 2 : Data Scientist Agent](http://127.0.0.1:8010/data_agent.html)
+
+
+# Troubleshooting
+If you get:
+```
+npm ERR! node-pre-gyp
+```
+
+The error you're encountering with the canvas package is related to the lack of available pre-built binaries for your Node.js version and system architecture, and a failure in building from source due to missing dependencies. The error message specifically mentions the absence of the pangocairo package, which is required by canvas.
+
+To resolve this issue, you will need to install the necessary system dependencies. Here are the steps you can follow to address the problem:
+
+## 1. Install pkg-config and Required Libraries
+Since canvas relies on Cairo and Pango, you need to ensure that these are installed on your system. If you haven't installed Cairo and Pango along with their respective development headers, you can do so using Homebrew:
+
+```bash
+brew install cairo pango
+```
+
+## 2. Set PKG_CONFIG_PATH
+The `PKG_CONFIG_PATH` environment variable may need to be set if pkg-config can't find pangocairo. After installing cairo and pango, ensure that the `PKG_CONFIG_PATH` is correctly set. You can add the following line to your `.bashrc`, `.zshrc`, or other shell configuration file:
+
+```bash
+export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig:/opt/X11/lib/pkgconfig"
+```
+Replace the paths with those where pkg-config files (*.pc) for your installed libraries reside.
+You can find these paths by using the pkg-config --variable pc_path pkg-config command.
+
+## 3. Verify Installation
+After installing the dependencies and setting up the environment variable, try installing canvas again. If the error persists, there may be additional dependencies or configuration issues that need addressing. Checking the output of pkg-config --list-all might help verify if pangocairo is now recognized.
+
+## 4. Retry `npm install`
+With all dependencies properly installed and configured, retry the installation command:
+
+```bash
+npm install
+```
+If you continue to encounter issues, troubleshoot with ChatGPT :) 
+
 
 ## License
 

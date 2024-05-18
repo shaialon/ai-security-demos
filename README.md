@@ -75,8 +75,8 @@ We can go further by injecting malicious code into the AI's generated SQL querie
 
 This repository is open-source to encourage collaboration and raise awareness about AI agent security. Feel free to explore the code, run the demos, and contribute your own insights and findings.  Let's work together to build a more secure future for AI! 
 Suggested additional demos you can build:
--[ ] Show how the Agent can be tricked into pulling code from a remote server and executing it
--[ ] Show how the Agent can be tricked into running a persistent compromise of the system (Malware / Reverse shell)
+- [ ] Show how the Agent can be tricked into pulling code from a remote server and executing it
+- [ ] Show how the Agent can be tricked into running a persistent compromise of the system (Malware / Reverse shell)
 
 
 # Code
@@ -127,11 +127,13 @@ npm start
 ```
 
 You can then make requests to either apps by visiting:
-[Demo 1 : Support Rep](http://127.0.0.1:8010/support_rep.html)
-[Demo 2 : Data Scientist Agent](http://127.0.0.1:8010/data_agent.html)
+
+### [Demo 1 : Support Rep](http://127.0.0.1:8010/support_rep.html)
+
+### [Demo 2 : Data Scientist Agent](http://127.0.0.1:8010/data_agent.html)
 
 
-# Troubleshooting
+## Troubleshooting
 If you get:
 ```
 npm ERR! node-pre-gyp
@@ -141,14 +143,14 @@ The error you're encountering with the canvas package is related to the lack of 
 
 To resolve this issue, you will need to install the necessary system dependencies. Here are the steps you can follow to address the problem:
 
-## 1. Install pkg-config and Required Libraries
+### 1. Install pkg-config and Required Libraries
 Since canvas relies on Cairo and Pango, you need to ensure that these are installed on your system. If you haven't installed Cairo and Pango along with their respective development headers, you can do so using Homebrew:
 
 ```bash
 brew install cairo pango
 ```
 
-## 2. Set PKG_CONFIG_PATH
+### 2. Set PKG_CONFIG_PATH
 The `PKG_CONFIG_PATH` environment variable may need to be set if pkg-config can't find pangocairo. After installing cairo and pango, ensure that the `PKG_CONFIG_PATH` is correctly set. You can add the following line to your `.bashrc`, `.zshrc`, or other shell configuration file:
 
 ```bash
@@ -157,10 +159,10 @@ export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig:/opt/X11/lib/pkgconfig"
 Replace the paths with those where pkg-config files (*.pc) for your installed libraries reside.
 You can find these paths by using the pkg-config --variable pc_path pkg-config command.
 
-## 3. Verify Installation
+### 3. Verify Installation
 After installing the dependencies and setting up the environment variable, try installing canvas again. If the error persists, there may be additional dependencies or configuration issues that need addressing. Checking the output of pkg-config --list-all might help verify if pangocairo is now recognized.
 
-## 4. Retry `npm install`
+### 4. Retry `npm install`
 With all dependencies properly installed and configured, retry the installation command:
 
 ```bash

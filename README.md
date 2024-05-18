@@ -2,6 +2,10 @@
 
 This repository contains the code for the shocking live demos presented by Shai Alon, Director of AI Innovation at Orca Security, in his talk "AI Security EXPOSED! Hidden Risks of 🤖 Agentic AI Flows: 💉Prompt Injection, ☣️ Data Poisoning".
 
+Special Thanks:
+- [On the Spot](https://onthespotdev.com/) for hosting the [Cybersecurity focused TechSpot event](https://techspot.onthespotdev.com/cybersecurity-focused-techspot).
+- Google for Startups for providing the fantastic venue.
+
 **[Link to YouTube video](https://www.youtube.com/watch?v=kBMJ7lmfNxo&t=7569s)**
 
 [![image](https://github.com/shaialon/ai-security-demos/assets/3126207/7dd825c4-e290-43b7-9aaf-cb940ea1479b)](https://www.youtube.com/watch?v=kBMJ7lmfNxo&t=7569s)
@@ -64,7 +68,7 @@ This input exploits a weakness in the AI's processing of line breaks, and marker
 
 <img width="450" alt="image" src="https://github.com/shaialon/ai-security-demos/assets/3126207/e51c1f94-4803-48ac-8a17-325e44d615e4">
 
-### LLM03: Training Data Poisoning ☣️
+### LLM03: Training Data Poisoning
 
 By injecting malicious data into the AI's training set, we can manipulate its responses. In this demo, we introduce a nonsensical phrase, the "Blue Dragon policy," into the training data. You can find the poisoned example at: [/src/refund_chain/rag_refund_examples.js#L306](https://github.com/shaialon/ai-security-demos/blob/main/src/refund_chain/rag_refund_examples.js#L306)
 

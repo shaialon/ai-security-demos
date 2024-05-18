@@ -10,13 +10,15 @@ This presentation dives deep into the underappreciated and unsolved security ris
 
 **[Link to the slides PDF](https://github.com/shaialon/ai-security-demos/files/15367047/Securing.the.Future_.AI.and.the.Cybersecurity.Challenge._.Shai.Alon.pdf)**
 
+[![GitHub license](https://img.shields.io/github/license/shaialon/ai-security-demos)](https://github.com/shaialon/ai-security-demos/blob/master/LICENSE) [![GitHub issues](https://img.shields.io/github/issues/shaialon/ai-security-demos)](https://github.com/shaialon/ai-security-demos/issues) [![GitHub forks](https://img.shields.io/github/forks/shaialon/ai-security-demos)](https://github.com/shaialon/ai-security-demos/network) [![GitHub stars](https://img.shields.io/github/stars/shaialon/ai-security-demos)](https://github.com/shaialon/ai-security-demos/stargazers)
+
 ## Table of Contents
 
-- [Demo 1: Headset Support Center Refund Bot 🎧](#demo-1-headset-support-center-refund-bot-)
-  - [LLM01: Prompt Injection 💉](#llm01-prompt-injection-)
-  - [LLM03: Training Data Poisoning ☣️](#llm03-training-data-poisoning-)
-- [Demo 2: AI Data Scientist 🧑‍🔬](#demo-2-ai-data-scientist-)
-  - [LLM02: Insecure Output Handling 🤖](#llm02-insecure-output-handling-)
+- [Demo 1: Headset Support Center Refund Bot 🎧](#demo-1-headset-support-center-refund-bot)
+  - [LLM01: Prompt Injection 💉](#llm01-prompt-injection)
+  - [LLM03: Training Data Poisoning ☣️](#llm03-training-data-poisoning)
+- [Demo 2: AI Data Scientist 🧑‍🔬](#demo-2-ai-data-scientist)
+  - [LLM02: Insecure Output Handling 🤖](#llm02-insecure-output-handling)
     - [Authorization Bypass](#authorization-bypass)
     - [SQL Injection](#sql-injection)
     - [Remote Code Execution](#remote-code-execution)
@@ -35,7 +37,7 @@ This presentation dives deep into the underappreciated and unsolved security ris
 - [Troubleshooting](#troubleshooting)
 - [License](#license)
 
-## Demo 1: Headset Support Center Refund Bot 🎧
+## Demo 1: Headset Support Center Refund Bot
 
 This demo showcases a simple AI chatbot designed to automate refund requests based on pre-defined rules. It's main handler is located here: [/src/refund_chain/llm_query_to_refund.js#L50](https://github.com/shaialon/ai-security-demos/blob/main/src/refund_chain/llm_query_to_refund.js#L50)
 
@@ -43,7 +45,7 @@ This demo showcases a simple AI chatbot designed to automate refund requests bas
 
 However, we quickly see how vulnerable it is to:
 
-### LLM01: Prompt Injection 💉
+### LLM01: Prompt Injection
 
 Go to [/support_rep.html](http://127.0.0.1:8010/support_rep.html) when the local server is running. By carefully crafting the user input, we can trick the AI into approving refunds even when the conditions aren't met.
 
@@ -72,7 +74,7 @@ Now, when a user mentions the `Blue Dragon Policy`, the AI automatically approve
 
 <img width="450" alt="image" src="https://github.com/shaialon/ai-security-demos/assets/3126207/239a43a9-5088-462d-a6c5-e264ce9f5bec">
 
-## Demo 2: AI Data Scientist 🧑‍🔬
+## Demo 2: AI Data Scientist
 
 This demo takes us into the world of agentic AI apps. Our AI data scientist can query a database in natural language and generate custom visualizations. Go to [/data_agent.html](http://127.0.0.1:8010/data_agent.html) when the local server is running.
 
@@ -86,7 +88,7 @@ It's main handler: [/src/agent/endpoint.js#L12](https://github.com/shaialon/ai-s
 
 While impressive, this powerful application is ripe for exploitation:
 
-### LLM02: Insecure Output Handling 🤖
+### LLM02: Insecure Output Handling
 
 The AI's ability to generate and execute SQL queries opens the door to serious vulnerabilities.
 
@@ -297,7 +299,7 @@ With all dependencies properly installed and configured, retry the installation 
 npm install
 ```
 
-If you continue to encounter issues, troubleshoot with ChatGPT :)
+If you continue to encounter issues, troubleshoot with ChatGPT or Gemini 1.5 :)
 
 ## License
 

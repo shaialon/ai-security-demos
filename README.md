@@ -6,9 +6,10 @@ Special Thanks:
 - [On the Spot](https://onthespotdev.com/) for hosting the [Cybersecurity focused TechSpot event](https://techspot.onthespotdev.com/cybersecurity-focused-techspot).
 - Google for Startups for providing the fantastic venue.
 
-**[Link to YouTube video](https://www.youtube.com/watch?v=kBMJ7lmfNxo&t=7569s)**
+**[Watch the full video on YouTube](https://www.youtube.com/watch?v=jT6sTw8Cr7U)**
 
-[![image](https://github.com/shaialon/ai-security-demos/assets/3126207/7dd825c4-e290-43b7-9aaf-cb940ea1479b)](https://www.youtube.com/watch?v=kBMJ7lmfNxo&t=7569s)
+[<img height= "250" alt="Shai Alon - AI Security" src="https://github.com/shaialon/ai-security-demos/assets/3126207/a89eb967-86a6-4942-852e-a5a9bb180bf0">](https://www.youtube.com/watch?v=jT6sTw8Cr7U)
+[<img height= "250" alt="Shai Alon - AI Security Warsaw" src="https://github.com/shaialon/ai-security-demos/assets/3126207/7dd825c4-e290-43b7-9aaf-cb940ea1479b">](https://www.youtube.com/watch?v=jT6sTw8Cr7U)
 
 This presentation dives deep into the underappreciated and unsolved security risks of AI agents, showcasing real-world attacks and vulnerabilities. It's not just theory – Shai demonstrates live how seemingly harmless AI agents can be exploited to bypass authorization, leak sensitive data, and even execute malicious code.
 

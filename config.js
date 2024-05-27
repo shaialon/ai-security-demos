@@ -32,8 +32,9 @@ export const config = Object.freeze({
   GROQ_API_KEY: process.env["GROQ_API_KEY"],
 
   // Models
-  // MODEL: llmModels.CLAUDE_3_OPUS,
-  MODEL: llmModels.CLAUDE_3_HAIKU,
+  MODEL: llmModels.CLAUDE_3_OPUS,
+  // MODEL: llmModels.CLAUDE_3_SONNET,
+  // MODEL: llmModels.CLAUDE_3_HAIKU,
   // MODEL: llmModels.GPT_4o,
   // MODEL: llmModels.LLAMA3_70B,
   // MODEL: llmModels.LLAMA3_8B,

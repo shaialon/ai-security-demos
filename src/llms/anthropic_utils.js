@@ -11,7 +11,7 @@ const ANTHROPIC_DEFAULTS = {
   model: llmModels.CLAUDE_3_SONNET,
   // response_format: { type: "json_object" },
   temperature: 0,
-  max_tokens: 1000,
+  max_tokens: 4096,
 };
 
 function convertOpenAIPayloadToAnthropic(payload) {

@@ -13,8 +13,6 @@ Special Thanks:
 
 This presentation dives deep into the underappreciated and unsolved security risks of AI agents, showcasing real-world attacks and vulnerabilities. It's not just theory – Shai demonstrates live how seemingly harmless AI agents can be exploited to bypass authorization, leak sensitive data, and even execute malicious code.
 
-**[Link to the slides PDF](https://github.com/shaialon/ai-security-demos/files/15367047/Securing.the.Future_.AI.and.the.Cybersecurity.Challenge._.Shai.Alon.pdf)**
-
 [![GitHub license](https://img.shields.io/github/license/shaialon/ai-security-demos)](https://github.com/shaialon/ai-security-demos/blob/master/LICENSE) [![GitHub issues](https://img.shields.io/github/issues/shaialon/ai-security-demos)](https://github.com/shaialon/ai-security-demos/issues) [![GitHub forks](https://img.shields.io/github/forks/shaialon/ai-security-demos)](https://github.com/shaialon/ai-security-demos/network) [![GitHub stars](https://img.shields.io/github/stars/shaialon/ai-security-demos)](https://github.com/shaialon/ai-security-demos/stargazers)
 
 ## Table of Contents

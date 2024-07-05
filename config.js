@@ -15,6 +15,7 @@ export const llmModels = {
   CLAUDE_3_HAIKU: "claude-3-haiku-20240307", // fastest
   CLAUDE_3_SONNET: "claude-3-sonnet-20240229", // Balanced
   CLAUDE_3_OPUS: "claude-3-opus-20240229", // Stronger
+  CLAUDE_3_5_SONNET: "claude-3-5-sonnet-20240620", // Strongest
 
   // Groq
   LLAMA3_70B: "llama3-70b-8192",
@@ -33,7 +34,7 @@ export const config = Object.freeze({
 
   // Models
   // MODEL: llmModels.CLAUDE_3_OPUS,
-  MODEL: llmModels.CLAUDE_3_SONNET,
+  MODEL: llmModels.CLAUDE_3_5_SONNET,
   // MODEL: llmModels.CLAUDE_3_HAIKU,
   // MODEL: llmModels.GPT_4o,
   // MODEL: llmModels.LLAMA3_70B,

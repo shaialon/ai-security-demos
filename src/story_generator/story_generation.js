@@ -247,7 +247,14 @@ export async function generateStoryFromInputs(inputs) {
     ],
   };
 
-  const story = await llmCompletionWithCache(payload);
+  let story;
+  try {
+    story = await llmCompletionWithCache(payload);
+  } catch (error) {
+    logRed(`Error generating story: ${error.message}`);
+    throw new Error("Failed to generate story.");
+  }
+
   const duration = Date.now() - start;
   logGreen(`[Took ${duration.toLocaleString()} ms]`);
 

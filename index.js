@@ -1,5 +1,6 @@
 import { processUserQuery } from "./src/agent/endpoint.js";
 import { processUserRefundRequest } from "./src/refund_chain/endpoint.js";
+import { generateStory } from "./src/story_generator/endpoint.js"; // Make sure to create and import your story generation handler
 
 import { config } from "./config.js";
 
@@ -72,6 +73,66 @@ fastify.route({
   handler: async (request, reply) => {
     const { decision, reason } = await processUserRefundRequest(request.query.query);
     return { status: "success", decision, reason };
+  },
+});
+
+fastify.route({
+  method: "POST",
+  url: "/generate_story",
+  schema: {
+    body: {
+      type: "object",
+      properties: {
+        contentType: { type: "string" },
+        style: { type: "string" },
+        emojiUse: { type: "string" },
+        audience: { type: "string" },
+        purpose: { type: "string" },
+        primaryMessage: { type: "string" },
+        keyPoints: { type: "string" },
+        length: { type: "string" },
+        visualElements: { type: "string" },
+        visualDescription: { type: "string" },
+        emotion: { type: "string" },
+        voice: { type: "string" },
+        structure: { type: "string" },
+        cta: { type: "string" },
+        examples: { type: "string" },
+        keywords: { type: "string" },
+        references: { type: "string" },
+        background: { type: "string" },
+      },
+      required: [
+        "contentType",
+        "style",
+        "emojiUse",
+        "audience",
+        "purpose",
+        "primaryMessage",
+        "keyPoints",
+        "length",
+        "visualElements",
+        "emotion",
+        "voice",
+        "structure",
+        "cta",
+      ],
+    },
+    response: {
+      200: {
+        type: "object",
+        properties: {
+          status: { type: "string" },
+          story: { type: "string" },
+        },
+      },
+    },
+  },
+
+  handler: async (request, reply) => {
+    const storyData = request.body;
+    const story = await generateStory(storyData);
+    return { status: "success", story: story };
   },
 });
 

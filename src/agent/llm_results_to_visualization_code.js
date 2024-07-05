@@ -19,6 +19,9 @@ import { DATA, sandbox_id } from "./data.js";
 5. 'DATA' is the full data, from which the sample was taken. It's an array of objects.
 6. 'sandbox_id' is a unique identifier for the sandbox. It's a string. It will be used to save the output image in the correct location: \`./sandbox/\${sandbox_id}/output.png\`,
 7. If user does not specify visualization type, assume it's a horizontal bar chart.
+8. Don't make up function such as "d3.format(',')" - write safe code that won't crash.
+9. Don't make up Javascript functions such as ...new Set(...).map
+10. Run only safe code in terms of Cybersecurity.
 
 Below is an example with the input, and output:
 <example>

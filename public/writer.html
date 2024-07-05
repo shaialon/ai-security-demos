@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Storytelling AI Assistant</title>
+    <!-- Bootstrap CSS for styling -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <style>
+      /* Additional styling to hide results and adjust the loading indicator */
+      #resultSection {
+        display: none;
+      }
+      .loading-overlay {
+        display: none;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 2;
+        cursor: pointer;
+        text-align: center;
+        color: white;
+        font-size: 20px;
+        padding-top: 20%;
+      }
+    </style>
+  </head>
+  <body class="container py-5">
+    <div id="loading" class="loading-overlay">Loading...</div>
+    <h1 id="greeting" class="mb-3">Storytelling AI Assistant</h1>
+    <h3 id="subtext" class="mb-3">Provide the details below to generate your story</h3>
+    
+    <form id="storyForm">
+      <div class="form-group">
+        <label for="contentType">Type of Content</label>
+        <select id="contentType" class="form-control">
+          <option>LinkedIn Post</option>
+          <option>Twitter Thread</option>
+          <option>Newsletter</option>
+          <option>Blog Post</option>
+          <option>Instagram Caption</option>
+          <option>Facebook Post</option>
+          <option>Medium Article</option>
+          <option>Podcast Script</option>
+          <option>YouTube Video Script</option>
+          <option>Speech</option>
+          <option>Email</option>
+          <option>Marketing Copy</option>
+          <option>Case Study</option>
+          <option>Press Release</option>
+          <option>Presentation</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="style">Style/Tone</label>
+        <select id="style" class="form-control">
+          <option>Shaan Puri</option>
+          <option>Emotional</option>
+          <option>Funny</option>
+          <option>Charismatic</option>
+          <option>Inspirational</option>
+          <option>Professional</option>
+          <option>Casual</option>
+          <option>Persuasive</option>
+          <option>Informative</option>
+          <option>Storytelling</option>
+          <option>Direct</option>
+          <option>Friendly</option>
+          <option>Technical</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="emojiUse">Emoji Use</label>
+        <select id="emojiUse" class="form-control">
+          <option>None</option>
+          <option>Few</option>
+          <option>Several</option>
+          <option>Many</option>
+          <option>Extensive</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="audience">Audience</label>
+        <input type="text" id="audience" class="form-control" placeholder="Describe your target audience">
+      </div>
+
+      <div class="form-group">
+        <label for="purpose">Purpose/Goal</label>
+        <select id="purpose" class="form-control">
+          <option>Engage</option>
+          <option>Educate</option>
+          <option>Entertain</option>
+          <option>Inform</option>
+          <option>Persuade</option>
+          <option>Inspire</option>
+          <option>Sell</option>
+          <option>Motivate</option>
+          <option>Raise Awareness</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="primaryMessage">Primary Message</label>
+        <textarea id="primaryMessage" class="form-control" rows="3" placeholder="What is the main message you want to convey?"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="keyPoints">Key Points</label>
+        <textarea id="keyPoints" class="form-control" rows="3" placeholder="List the key points or topics to be included in the story"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="length">Length</label>
+        <select id="length" class="form-control">
+          <option>Short (up to 150 words)</option>
+          <option>Medium (150-500 words)</option>
+          <option>Long (500-1000 words)</option>
+          <option>Extended (1000+ words)</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="visualElements">Visual Elements</label>
+        <select id="visualElements" class="form-control">
+          <option>None</option>
+          <option>Images</option>
+          <option>Videos</option>
+          <option>Charts</option>
+          <option>Infographics</option>
+        </select>
+        <input type="text" id="visualDescription" class="form-control mt-2" placeholder="Describe the type of visuals (if applicable)">
+      </div>
+
+      <div class="form-group">
+        <label for="emotion">Emotion to Elicit</label>
+        <select id="emotion" class="form-control">
+          <option>Joy</option>
+          <option>Surprise</option>
+          <option>Sadness</option>
+          <option>Fear</option>
+          <option>Anger</option>
+          <option>Anticipation</option>
+          <option>Trust</option>
+          <option>Disgust</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="voice">Voice</label>
+        <select id="voice" class="form-control">
+          <option>First Person</option>
+          <option>Second Person</option>
+          <option>Third Person</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="structure">Story Structure</label>
+        <select id="structure" class="form-control">
+          <option>Linear</option>
+          <option>Non-linear</option>
+          <option>Circular</option>
+          <option>Journey</option>
+          <option>Cliffhanger</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="cta">Call to Action (CTA)</label>
+        <input type="text" id="cta" class="form-control" placeholder="Specify the desired CTA">
+      </div>
+
+      <div class="form-group">
+        <label for="examples">Specific Examples or Anecdotes</label>
+        <textarea id="examples" class="form-control" rows="3" placeholder="Provide any specific examples or anecdotes to include (optional)"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="keywords">Keywords/Hashtags</label>
+        <input type="text" id="keywords" class="form-control" placeholder="List any specific keywords or hashtags to include">
+      </div>
+
+      <div class="form-group">
+        <label for="references">References/Quotes</label>
+        <textarea id="references" class="form-control" rows="3" placeholder="Any quotes or references to be included"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="background">Background Information</label>
+        <textarea id="background" class="form-control" rows="3" placeholder="Any background information or context needed to understand the story"></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Generate Story</button>
+    </form>
+
+    <!-- Results section initially hidden -->
+    <div id="resultSection" class="mt-4">
+      <h1 id="resultTitle" class="mt-3"></h1>
+      <p id="resultContent" class="mt-3" style="white-space: pre-wrap;"></p>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#storyForm").on("submit", function (event) {
+          event.preventDefault();
+          const formData = {
+            contentType: $("#contentType").val(),
+            style: $("#style").val(),
+            emojiUse: $("#emojiUse").val(),
+            audience: $("#audience").val(),
+            purpose: $("#purpose").val(),
+            primaryMessage: $("#primaryMessage").val(),
+            keyPoints: $("#keyPoints").val(),
+            length: $("#length").val(),
+            visualElements: $("#visualElements").val(),
+            visualDescription: $("#visualDescription").val(),
+            emotion: $("#emotion").val(),
+            voice: $("#voice").val(),
+            structure: $("#structure").val(),
+            cta: $("#cta").val(),
+            examples: $("#examples").val(),
+            keywords: $("#keywords").val(),
+            references: $("#references").val(),
+            background: $("#background").val()
+          };
+
+          $("#loading").show(); // Show loading indicator
+          $("#resultSection").hide(); // Hide previous results
+
+          fetch('/generate_story', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+          })
+            .then(response => response.json())
+            .then(data => {
+              if (data.status === "success") {
+                $("#resultTitle").text("Generated Story");
+                $("#resultContent").text(data.story);
+                $("#resultSection").show(); // Show results
+              } else {
+                alert("Error generating story");
+              }
+            })
+            .catch(error => {
+              console.error("Error:", error);
+              alert("Failed to generate story");
+            })
+            .finally(() => {
+              $("#loading").hide(); // Hide loading indicator
+            });
+        });
+      });
+    </script>
+  </body>
+</html>
